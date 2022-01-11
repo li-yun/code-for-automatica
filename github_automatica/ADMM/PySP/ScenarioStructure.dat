@@ -1,0 +1,57 @@
+set Stages := FirstStage SecondStage ;
+
+set Nodes :=    RootNode
+ScenarioNode1
+ScenarioNode2
+ScenarioNode3
+ScenarioNode4
+ScenarioNode5
+ScenarioNode6
+ScenarioNode7
+ScenarioNode8
+ScenarioNode9
+ScenarioNode10 ;
+
+param NodeStage := RootNode        FirstStage
+ScenarioNode1	SecondStage
+ScenarioNode2	SecondStage
+ScenarioNode3	SecondStage
+ScenarioNode4	SecondStage
+ScenarioNode5	SecondStage
+ScenarioNode6	SecondStage
+ScenarioNode7	SecondStage
+ScenarioNode8	SecondStage
+ScenarioNode9	SecondStage
+ScenarioNode10	SecondStage ;
+
+set Children[RootNode] := ScenarioNode1	ScenarioNode2	ScenarioNode3	ScenarioNode4	ScenarioNode5	ScenarioNode6	ScenarioNode7	ScenarioNode8	ScenarioNode9	ScenarioNode10	 ;
+
+param ConditionalProbability := RootNode         1.0
+ScenarioNode1	0.1
+ScenarioNode2	0.1
+ScenarioNode3	0.1
+ScenarioNode4	0.1
+ScenarioNode5	0.1
+ScenarioNode6	0.1
+ScenarioNode7	0.1
+ScenarioNode8	0.1
+ScenarioNode9	0.1
+ScenarioNode10	0.1 ;
+set Scenarios := Scenario1 Scenario2 Scenario3 Scenario4 Scenario5 Scenario6 Scenario7 Scenario8 Scenario9 Scenario10 ;
+
+param ScenarioLeafNode := 
+Scenario1	ScenarioNode1
+Scenario2	ScenarioNode2
+Scenario3	ScenarioNode3
+Scenario4	ScenarioNode4
+Scenario5	ScenarioNode5
+Scenario6	ScenarioNode6
+Scenario7	ScenarioNode7
+Scenario8	ScenarioNode8
+Scenario9	ScenarioNode9
+Scenario10	ScenarioNode10 ;
+
+set StageVariables[FirstStage] := W1[*,*] b1[*] W2[*,*] b2[*];
+set StageVariables[SecondStage] := var_z[*,*,*] var_v[*,*,*] hidden1[*,*,*] sl1[*,*,*] hidden2[*,*,*] sl2[*,*,*] ;
+param StageCost := FirstStage FirstStageCost
+SecondStage SecondStageCost ;
